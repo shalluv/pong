@@ -100,9 +100,11 @@ def main():
             if(check_collision(ball_x, ball_y, player_1_x, player_1_y)):
                 ball_speed_x = -ball_speed_x * 1.1
                 ball_speed_y = ball_speed_y * 1.1
+                ball_x = player_1_x + STICK_WIDTH + BALL_SIZE
             elif(check_collision(ball_x, ball_y, player_2_x, player_2_y)):
                 ball_speed_x = -ball_speed_x * 1.1
                 ball_speed_y = ball_speed_y * 1.1
+                ball_x = player_2_x - STICK_WIDTH - BALL_SIZE
             
             if(ball_y <= 0):
                 ball_speed_y = -ball_speed_y
