@@ -94,7 +94,6 @@ def main():
         if(game_state == PLAYING):
             player_1_y = player_move(player_1_y, player_1_velocity)
             player_2_y = player_move(player_2_y, player_2_velocity)
-            stick_velocity += 0.00001
             if(ball_velocity_x == 0 and ball_velocity_y == 0 and (player_1_velocity or player_2_velocity)):
                 ball_velocity_x = (
                     0.1 + 0.01 * random.randint(0, 5)) * random.choice([-1, 1])
@@ -106,10 +105,12 @@ def main():
                 ball_velocity_x = -ball_velocity_x * 1.1
                 ball_velocity_y = ball_velocity_y * 1.1
                 ball_x = player_1_x + STICK_WIDTH + BALL_SIZE
+                stick_velocity = stick_velocity * 1.1
             elif(check_collision(ball_x, ball_y, player_2_x, player_2_y)):
                 ball_velocity_x = -ball_velocity_x * 1.1
                 ball_velocity_y = ball_velocity_y * 1.1
                 ball_x = player_2_x - STICK_WIDTH - BALL_SIZE
+                stick_velocity = stick_velocity * 1.1
 
             if(ball_y <= 0):
                 ball_velocity_y = -ball_velocity_y
