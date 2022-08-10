@@ -15,10 +15,10 @@ class Player:
         if self.y + self.velocity > 0 and self.y + self.velocity < SCREEN_HEIGHT - STICK_HEIGHT:
             self.y += self.velocity
 
-    def reset(self, is_reset_score: bool) -> None:
+    def reset(self, is_resetting_score: bool) -> None:
         self.x = self.ini_x
         self.y = self.ini_y
         self.velocity = 0.0
         self.initial_velocity = INITIAL_VELOCITY
-        if is_reset_score:
+        if is_resetting_score:
             self.score = int(0)
